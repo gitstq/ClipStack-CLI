@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clipstack-cli"
+version = "1.0.0"
+description = "🦞 ClipStack-CLI - Lightweight Terminal Clipboard History Intelligent Management Engine | 轻量级终端剪贴板历史智能管理引擎"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "gitstq", email = "gitstq@users.noreply.github.com"}
+]
+keywords = [
+    "clipboard",
+    "history",
+    "terminal",
+    "tui",
+    "cli",
+    "productivity",
+    "developer-tools"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Terminals",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "rich>=13.0.0",
+    "textual>=0.40.0",
+    "click>=8.0.0",
+    "pyperclip>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+clipstack = "clipstack.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gitstq/ClipStack-CLI"
+Documentation = "https://github.com/gitstq/ClipStack-CLI#readme"
+Repository = "https://github.com/gitstq/ClipStack-CLI"
+Issues = "https://github.com/gitstq/ClipStack-CLI/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["clipstack*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
